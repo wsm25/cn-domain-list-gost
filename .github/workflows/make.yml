@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # clone
-      - run: git clone https://github.com/v2fly/domain-list-community --depth=1 && mv domain-list-community domains
       - uses: actions/checkout@v3
         with:
           repository: wsm25/cn-domain-list-gost
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+      - run: git clone https://github.com/v2fly/domain-list-community --depth=1 && mv domain-list-community domains
       # make & commit
       - run: tree -L 2
-      - run: cd main&&python3 ./make.py
+      - run: python3 ./make.py
       - run: tree -L 2
       - run: rm -rf domains
       - uses: actions-js/push@master
