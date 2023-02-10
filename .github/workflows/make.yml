@@ -18,10 +18,9 @@ jobs:
         with:
           name:  wsm25/cn-domain-list-gost 
           path: main
-      - run: cd main
       # make & commit
       - run: tree -L 3
-      - run: python3 ./make.py
+      - run: cd main&&python3 ./make.py
       
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
