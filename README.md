@@ -2,6 +2,7 @@
 
 由于代理访问境内 IP 网站会被检测[^1]，Gost 需要屏蔽境内网站。
 
+`gost.yml`
 ```yaml
 services:
   - name: https-proxy
