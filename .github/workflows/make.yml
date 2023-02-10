@@ -24,7 +24,7 @@ jobs:
       - uses: actions-js/push@master
         with:
             github_token: ${{ secrets.ACTIONSECRET }}
-            message: Update cndm.txt @ ${{ github.event.repository.updated_at}}
+            message: Update@${{ github.event.repository.updated_at}}
       - run: rm -rf ./*
       
           
