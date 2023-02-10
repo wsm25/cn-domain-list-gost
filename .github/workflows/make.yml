@@ -11,14 +11,19 @@ jobs:
     steps:
       # clone
       - run: git clone https://github.com/v2fly/domain-list-community --depth=1 && mv domain-list-community domains
-      - run: git clone https://github.com/wsm25/cn-domain-list-gost  --depth=1 && mv cn-domain-list-gost main
+      - uses: actions/checkout@v3
+        with:
+          repository: cn-domain-list-gost
+          path: main
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
       # make & commit
       - run: tree -L 2
       - run: cd main&&python3 ./make.py
       - run: tree -L 2
-      - run: cd main && git add . && git commit -m "Update cndm" && git push
-      # clean
-      - run: cd ..
-      - run: rm -rf domains main
+      - run: rm -rf domains
+      - uses: actions-js/push@master
+        with:
+            github_token: ${{ secrets.ACTIONSECRET }}
       
           
