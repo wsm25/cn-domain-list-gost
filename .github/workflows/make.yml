@@ -20,7 +20,7 @@ jobs:
           path: main
       - run: cd main
       # make & commit
-      - run: ls
+      - run: tree -L 3
       - run: python3 ./make.py
       
       - uses: stefanzweifel/git-auto-commit-action@v4
