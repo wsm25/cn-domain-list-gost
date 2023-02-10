@@ -26,5 +26,6 @@ jobs:
         with:
             github_token: ${{ secrets.ACTIONSECRET }}
             message: Update cndm.txt @ ${date}
+      - run: rm -rf ./*
       
           
