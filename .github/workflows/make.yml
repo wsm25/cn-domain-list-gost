@@ -21,10 +21,11 @@ jobs:
       - run: python3 ./make.py
       - run: cat cndm.txt
       - run: rm -rf domains
+      - run: echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_STATE
       - uses: actions-js/push@master
         with:
             github_token: ${{ secrets.ACTIONSECRET }}
-            message: Update@$(date +'%Y-%m-%dT%H:%M:%S')
+            message: Update@${{ env.date }}
       - run: rm -rf ./*
       
           
