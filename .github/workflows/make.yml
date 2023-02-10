@@ -11,17 +11,12 @@ jobs:
     steps:
       # clone
       - run: git clone https://github.com/v2fly/domain-list-community --depth=1 && mv domain-list-community domains
-      - uses: actions/checkout@v3
-        with:
-          name:  wsm25/cn-domain-list-gost 
-          path: main
+      - run: git clone https://github.com/wsm25/cn-domain-list-gost  --depth=1 && mv cn-domain-list-gost main
       # make & commit
-      - run: tree -L 3
+      - run: tree -L 2
       - run: cd main&&python3 ./make.py
-      
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Update list
+      - run: tree -L 2
+      - run: cd main && git add . && git commit -m "Update cndm" && git push
       # clean
       - run: cd ..
       - run: rm -rf domains main
