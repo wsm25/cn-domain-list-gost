@@ -19,7 +19,7 @@ jobs:
       - run: git clone https://github.com/misakaio/chnroutes2 --depth=1 && mv chnroutes2/chnroutes.txt ./cnip.txt && rm -rf chnroutes2
       # make & commit
       - run: python3 ./make.py
-      - run: cat cndm.txt
+      # - run: cat cndm.txt
       - run: rm -rf domains
       - run: echo "::set-output name=date::$(date +'%Y-%m-%d')" # get date
         id: date
