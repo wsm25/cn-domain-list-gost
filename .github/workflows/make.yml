@@ -21,12 +21,12 @@ jobs:
       - run: python3 ./make.py
       - run: cat cndm.txt
       - run: rm -rf domains
-      - run: |
-          echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_STATE
+      - run: echo "::set-output name=date::$(date +'%Y-%m-%d')" # get date
+        id: date
       - uses: actions-js/push@master
         with:
             github_token: ${{ secrets.ACTIONSECRET }}
-            message: Update @ ${{ env.date }}
+            message: Update @ ${{ steps.date.outputs.date }}
       - run: rm -rf ./*
       
           
