@@ -21,6 +21,7 @@ jobs:
       - run: python3 ./make.py
       - run: tree -L 2
       - run: rm -rf domains
+      - run: git commit -m "Update cndm.txt"
       - uses: actions-js/push@master
         with:
             github_token: ${{ secrets.ACTIONSECRET }}
