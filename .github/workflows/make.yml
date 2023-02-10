@@ -10,10 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # clone
-      - uses: actions/checkout@v3
-        with:
-          name: v2fly/domain-list-community
-          path: domains
+      - run: git clone https://github.com/v2fly/domain-list-community --depth=1 && mv domain-list-community domains
       - uses: actions/checkout@v3
         with:
           name:  wsm25/cn-domain-list-gost 
