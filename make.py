@@ -1,4 +1,4 @@
-data_path='../domains/data/'
+data_path='domains/data/'
 cndm_file='./cndm.txt'
 
 import re
