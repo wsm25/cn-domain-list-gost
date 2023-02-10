@@ -16,10 +16,10 @@ jobs:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
       - run: git clone https://github.com/v2fly/domain-list-community --depth=1 && mv domain-list-community domains
+      - run: git clone https://github.com/misakaio/chnroutes2 --depth=1 && mv chnroutes2/chnroutes.txt ./cnip.txt && rm -rf chnroutes2
       # make & commit
-      - run: tree -L 2
       - run: python3 ./make.py
-      - run: tree -L 2
+      - run: cat cndm.txt
       - run: rm -rf domains
       - uses: actions-js/push@master
         with:
