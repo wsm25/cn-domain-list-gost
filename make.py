@@ -3,6 +3,7 @@ cndm_file='./cndm.txt'
 
 import re
 cndm=open(cndm_file,'w')
+errorline=[]
 # referring to https://github.com/v2fly/domain-list-community
 def handle_file(file): # param: file
     try:
@@ -22,12 +23,8 @@ def handle_file(file): # param: file
             continue
         # handle
         ll=line.split(":")
-        #print(ll)
-        # error
-        if len(ll)<1 or len(ll)>2:
-            print("invalid line: ",ll)
         # raw domain
-        elif len(ll)==1:
+        if len(ll)==1:
             cndm.write('.'+ll[0]+'\n')
         # include
         elif ll[0]=="include":
@@ -40,8 +37,12 @@ def handle_file(file): # param: file
             cndm.write('.'+ll[1]+'\n')
         # else
         else:
-            print("invalid line: ",ll)
+            errorline.append(line)
     fp.close()
 
 if __name__=='__main__':
     handle_file("geolocation-cn")
+    if errorline:
+        for line in errorline:
+            print(line)
+        raise ValueError()
