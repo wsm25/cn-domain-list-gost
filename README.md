@@ -5,9 +5,8 @@
 使用 [Domain list community](https://github.com/v2fly/domain-list-community) 和 [chnroutes2](https://github.com/misakaio/chnroutes2)
 
 ```shell
-mkdir /etc/gost
-# chown 
-cd /etc/gost
+mkdir /etc/gost && cd /etc/gost
+# chown gostuser: .
 wget https://raw.githubusercontent.com/wsm25/cn-domain-list-gost/main/cndm.txt
 wget https://raw.githubusercontent.com/wsm25/cn-domain-list-gost/main/cnip.txt
 wget https://raw.githubusercontent.com/wsm25/cn-domain-list-gost/main/gost.yml
