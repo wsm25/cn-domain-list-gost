@@ -2,8 +2,8 @@ data_path='domains/data/'
 cndm_file='./cndm.txt'
 
 import re
-cndm=open(cndm_file,'w')
 errorline=[]
+lines=[]
 # referring to https://github.com/v2fly/domain-list-community
 def handle_file(file): # param: file
     try:
@@ -25,17 +25,17 @@ def handle_file(file): # param: file
         ll=line.split(":")
         # raw domain
         if len(ll)==1:
-            cndm.write('.'+ll[0]+'\n')
+            lines.append('.'+ll[0]+'\n')
         # include
         elif ll[0]=="include":
             handle_file(ll[1])
         # regexp and full
         elif ll[0]=="full" or ll[0]=="regexp":
-            # cndm.write(ll[1]+'\n') # gost doesn't support regexp
+            # lines.append(ll[1]+'\n') # gost doesn't support regexp
             pass
         # domain
         elif ll[0]=="domain":
-            cndm.write('.'+ll[1]+'\n')
+            lines.append('.'+ll[1]+'\n')
         # else
         else:
             errorline.append(line)
@@ -43,7 +43,11 @@ def handle_file(file): # param: file
 
 if __name__=='__main__':
     handle_file("geolocation-cn")
+    with open(cndm_file,'w') as cndm:
+        cndm.writelines(list(OrderedDict.fromkeys(lines)))
+    
     if errorline:
         for line in errorline:
             print(line)
         raise ValueError()
+    
