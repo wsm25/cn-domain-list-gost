@@ -1,3 +1,4 @@
+# abandoned for terrible efficiency
 data_path='../domains/data/'
 cndm_file='./cndm.txt'
 
