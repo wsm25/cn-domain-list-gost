@@ -2,6 +2,8 @@ data_path='domains/data/'
 cndm_file='./cndm.txt'
 
 import re
+from collections import OrderedDict
+
 errorline=[]
 lines=[]
 # referring to https://github.com/v2fly/domain-list-community
