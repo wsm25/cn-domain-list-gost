@@ -32,6 +32,7 @@ def handle_file(file): # param: file
         # regexp and full
         elif ll[0]=="full" or ll[0]=="regexp":
             # cndm.write(ll[1]+'\n') # gost doesn't support regexp
+            pass
         # domain
         elif ll[0]=="domain":
             cndm.write('.'+ll[1]+'\n')
