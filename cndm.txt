@@ -3281,6 +3281,9 @@
 .mingyuanyun.com
 .mypaas.com
 .mypaas.com.cn
+.lkcoffee.com
+.luckincoffeecdn.com
+.yyds.co
 .0123456789.com
 .0379home.com
 .055110.com
