@@ -982,6 +982,9 @@
 .maoercdn.com
 .mincdn.com
 .yo9.com
+.ciweimao.com
+.hbooker.com
+.kuangxiangit.com
 .biji.com
 .ddmogo.com
 .igetget.cn
