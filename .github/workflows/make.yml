@@ -17,6 +17,7 @@ jobs:
           fetch-depth: 0
       - run: git clone https://github.com/v2fly/domain-list-community --depth=1 && mv domain-list-community domains
       - run: wget https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt -O cnip.txt
+      - run: sed -i '1,2d' cnip.txt
       # make & commit
       - run: python3 ./make.py
       - run: rm -rf domains
