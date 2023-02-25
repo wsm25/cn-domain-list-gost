@@ -2973,6 +2973,7 @@
 .mtrace.qq.com
 .push.qq.com
 .pgdt.gtimg.cn
+.ugdtimg.com
 .openmidas.com
 .qq.design
 .qqgamedesign.com
@@ -3284,6 +3285,7 @@
 .mingyuanyun.com
 .mypaas.com
 .mypaas.com.cn
+.myypark.com
 .lkcoffee.com
 .luckincoffeecdn.com
 .yyds.co
