@@ -1,5 +1,5 @@
 name: Make List
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: Automatic update of lists
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
